@@ -20,8 +20,8 @@
         var self = this;
         
         self.defaults = {
-            autoplay : true,
-            mouse: true,
+            autoplay : false,
+            mouse: false,
             animate: 'fade',
             deplay : 5000
         }
@@ -87,13 +87,15 @@
                 var move = '-100' * self.index + '%';
                 self.container.animate({
                     left : move
-                });            
+                });
+
             }
             if(self.options.animate == 'fade'){            
-                self.container.children('li').eq(self.current).fadeOut(function(){ 
-                    self.container.children('li').eq(self.index).fadeIn();
+                self.li.eq(self.current).fadeOut(function(){ 
+                    self.li.eq(self.index).fadeIn();
                 });
-            }        
+            }
+            self.li.eq(self.index).addClass('show').siblings().removeClass('show');   
             self.slide.eq(self.index)._active('current');                
             if(self.options.autoplay) {
                 self.stop().start(self.index + 1);

@@ -46,15 +46,34 @@
         .nav > .current{
             background: blue;
         }
+        .show > span{
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: red;
+            z-index: 99;
+            top: 130px;
+            left: 140px;
+            animation: myfirst 2s ease 1 forwards;
+        }
+        @keyframes myfirst
+        {
+            from {background: red;}
+            to {background: yellow;}
+        }
     </style>
 </head>
 <body>
     <div class="banner">
       <ul>
-        <li style="background-color:red;"><img src="img/1.jpg" alt=""></li>
-        <li style="background-color:black;" ><img src="img/2.jpg" alt=""></li>
-        <li style="background-color:blue;" ><img src="img/3.jpg" alt=""></li>
-        <li style="background-color:yellow;" ><img src="img/4.jpg" alt=""></li>
+        <li class="show" >
+            <img src="img/1.jpg" alt="">
+            <span class="sp"></span>
+        </li>
+        <li ><img src="img/2.jpg" alt=""></li>
+        <li ><img src="img/3.jpg" alt=""></li>
+        <li ><img src="img/4.jpg" alt=""></li>
       </ul>
       <div class="nav">
           <a class="current" href="javascript:;"></a>
