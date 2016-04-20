@@ -100,9 +100,7 @@
             }
         }
         self.slide.on('click',function(){
-            if(self.interval){
-                self.stop();
-            }
+            self.stop();
             var i = $(this).index();
             if(i !== self.index){
                 self.step(self.index,i);
