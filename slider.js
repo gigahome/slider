@@ -20,8 +20,8 @@
         var self = this;
         
         self.defaults = {
-            autoplay : false,
-            mouse: false,
+            autoplay : true,
+            mouse: true,
             animate: 'fade',
             deplay : 5000
         }
