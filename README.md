@@ -21,13 +21,11 @@
   <div class="banner">
     <ul>
       <li></li>
-      <li></li>
-      <li></li>
+      ...
     </ul>
     <div class="nav">
       <a></a>
-      <a></a>
-      <a></a>
+      ...
     </nav>
   </div>
 ```
