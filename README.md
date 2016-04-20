@@ -1,5 +1,7 @@
 # slider
-试写轮播图插件,依赖jQuery,支持require加载,同页面多次调用; [DEMO](http://buynao.github.io/slider/)
+试写轮播图插件,依赖jQuery,支持require加载,同页面多次调用; 
+
+[DEMO查看](http://buynao.github.io/slider/)
 
 暂时只向外暴露了4个接口:
 ```
@@ -14,8 +16,6 @@
     deplay : 5000
   }
 ```
-###使用方法也非常简单###
-
 #####HTML结构#####
 ```
   <div class="banner">
