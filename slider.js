@@ -22,10 +22,12 @@
         self.defaults = {
             autoplay : true,
             mouse: true,
-            animate: true,
+            animate: 'fade',
             deplay : 5000
         }
         self.container = context.find('ul');
+
+        self.li = self.container.children('li');
         
         self.interval = null;  
         
@@ -43,66 +45,17 @@
 
         self.init = function(opts){
             self.options = $.extend({}, self.defaults, opts);
-            
-            if(self.options.animate == 'left'){
-                self.left()
-            }else{
-                self.fade()
-            }
+            self.cssRest();
+            self.options.animate === 'fade' && self.fade();
             self.options.autoplay && self.start(self.index + 1); //自动播放
             self.options.mouse && self.mouse();    //鼠标暂停事件
         }
-        self.left = function(){
-            var _li = self.container.children('li');
-            var _img = _li.find('img');
-            var liWidth = _li.css('width');
-            var liHeight = _li.css('height');
-            var clientWidth = document.body.clientWidth;
-            if(parseInt(liWidth) === clientWidth){
-                self.container.css({
-                    'position' : 'relative',
-                    'width': (self.total * 100)+'%',
-                    'height':liHeight
-                });
-                _li.css('width','25%')
-            }else{
-                self.container.css({
-                    'position' : 'relative',
-                    'width':(parseInt(liWidth) * self.total )+'px',
-                    'height':liHeight
-                });
-            }
-            context.css({
-                'overflow' : 'hidden',
-                'width':liWidth,
-                'height':liHeight
-            });
-            _img.css({
-                'width':'100%',
-                'height':liHeight
-            });
-        }
         self.fade = function(){
-            var _li = self.container.children('li');
-            var _img = _li.find('img');
-            var liWidth = _li.css('width');
-            var liHeight = _li.css('height');
-            var clientWidth = document.body.clientWidth;
-            context.css({
-                'overflow' : 'hidden',
-                'width':liWidth,
-                'height':liHeight
-            });            
-            self.container.css({
-                'position' : 'relative',
-                'width': (self.total * 100)+'%',
-                'height':liHeight
-            });           
-            _li.hide().eq(0).show();
-            _img.css({
-                'width':'100%',
-                'height':liHeight
-            });
+            self.li.hide().eq(self.index).show();
+        }
+        self.cssRest = function(){
+            self.container.css('width', (self.total * 100) + '%');
+            self.li.css('width', (100 / self.total) + '%');
         }
         self.start = function(index){
             if(self.options.deplay && index){
@@ -113,7 +66,10 @@
             return self;
         }
 		self.stop = function() {
-			clearTimeout(self.interval);
+            if(self.interval){
+                clearTimeout(self.interval);
+                self.interval = null;
+            }
 			return self;
 		};
         self.step = function(index,i){
@@ -132,7 +88,8 @@
                 self.container.animate({
                     left : move
                 });            
-            }else{            
+            }
+            if(self.options.animate == 'fade'){            
                 self.container.children('li').eq(self.current).fadeOut(function(){ 
                     self.container.children('li').eq(self.index).fadeIn();
                 });
