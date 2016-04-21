@@ -1,5 +1,5 @@
 # slider
-试写轮播图插件,依赖jQuery,支持require加载,同页面多次调用; 
+轮播图插件，功能简单，100多行代码,依赖jQuery,支持require加载,同页面多次调用; 
 
 [DEMO查看](http://buynao.github.io/slider/)
 
