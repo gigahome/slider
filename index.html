@@ -23,10 +23,13 @@
         }
         .banner > ul{
             position: relative;
+            height: 400px;
         }
         .banner li{  
             float: left;
             height: 400px;
+            text-align: center;
+            line-height: 400px;
         }      
         .nav{
             text-align: center;
@@ -42,49 +45,71 @@
             z-index: 1;
             border-radius: 4px;
             background: #ccc;
+            padding: 0 5px;
+            margin: 0 4px;
         }
         .nav > .current{
             background: blue;
         }
-        .show > span{
-            display: block;
+        .navigation{
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: red;
-            z-index: 99;
-            top: 130px;
-            left: 140px;
-            animation: myfirst 2s ease 1 forwards;
+            top: 150px;
+            width: 100%;
         }
-        @keyframes myfirst
-        {
-            from {background: red;}
-            to {background: yellow;}
+        .navigation > a{
+            position: absolute;
+            text-decoration: none;
+            display: block;
+            font-size: 60px;
+            color: #675E5E;
+        }
+        .prev{
+            left: 20px;
+        }
+        .next{
+            right: 20px;
+        }
+        .b2{
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="banner">
+    <div class="banner b1">
+      <ul>
+        <li class="show"> slider1</li>
+        <li > slider2</li>
+        <li > slider3</li>
+        <li > slider4</li>
+        <li > slider5</li>
+        <li > slider6</li>
+      </ul>
+      <div class="navigation">
+          <a href="javascript:;" class="prev"><</a>
+          <a href="javascript:;" class="next">></a>
+      </div>
+    </div>
+    <div class="banner b2">
       <ul>
         <li class="show" >
             <img src="img/1.jpg" alt="">
-            <span class="sp"></span>
         </li>
         <li ><img src="img/2.jpg" alt=""></li>
         <li ><img src="img/3.jpg" alt=""></li>
         <li ><img src="img/4.jpg" alt=""></li>
       </ul>
-      <div class="nav">
-          <a class="current" href="javascript:;"></a>
-          <a href="javascript:;"></a>
-          <a href="javascript:;"></a>
-          <a href="javascript:;"></a>
+      <div class="navigation">
+          <a href="javascript:;" class="prev"><</a>
+          <a href="javascript:;" class="next">></a>
       </div>
     </div>           
     <script>
     $(document).ready(function(){
-        $('.banner').slider();
+        $('.b1').slider({
+            animate: 'left',
+            autoplay: false
+        });
+        $('.b2').slider();
     })
     </script>
 </body>
