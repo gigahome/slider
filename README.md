@@ -44,33 +44,8 @@
       float: left;
       height: 自行设置(轮播图片高度);
   }
-  //如果li包含img图片,须自行设置图片宽高
-  //img{
-      width:100%;
-  }
-  //nav导航btn样式,须自行设置
-  .nav{
-      text-align: center;
-      position: absolute;
-      width: 100%;
-      ...
-      不需要的话,直接display:none;
-      display:none;
-  }
-  .nav > a{
-      display: inline-block;
-      width,height;
-      ...
-  }
+  //nav导航btn样式,须自行设置,不需要的话，直接.nav{dispay:none;}
   //navigation左右方向样式,须自行设置,不需要的话,不用在html里添加结构;
-  .navigation{
-      position: absolute;
-      ...
-  }
-  .navigation > a{
-      position: absolute;
-      ...     
-  }
 ```
 #####JS调用#####
 ```js
