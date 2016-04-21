@@ -144,7 +144,9 @@
             self.container.hover(function(){
 				self.stop();
 			},function(){
-				self.start(self.index + 1);
+                if(self.options.autoplay){
+				    self.start(self.index + 1);
+                }
 			})
         }
         return self.init(opts);
